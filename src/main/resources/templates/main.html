@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <title>EduWatching</title>
+    <link rel="shortcut icon" href="mainStatic/img/favicon.ico">
+    <!-- global stylesheets -->
+    <script src="https://cdn.staticfile.org/echarts/4.2.1/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="mainStatic/css/font-icon-style.css">
+    <link rel="stylesheet" href="mainStatic/css/style.default.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="mainStatic/css/jquery.mCustomScrollbar.min.css"/>
+    <link rel="stylesheet" href="mainStatic/css/template.css"/>
+    <link rel="stylesheet" href="mainStatic/css/style.css">
+
+    <script src="https://cdn.staticfile.org/vue/2.6.10/vue.min.js"></script>
+</head>
+
+<body>
+<header class="header" style="height: 35px;">
+    <nav class="navbar navbar-expand-lg ">
+        <div class="search-box">
+            <button class="dismiss"><i class="icon-close"></i></button>
+            <form id="searchForm" action="#" role="search">
+                <input type="search" placeholder="Search Now" class="form-control">
+            </form>
+        </div>
+        <div class="container-fluid ">
+            <div class="navbar-holder d-flex align-items-center justify-content-between">
+                <div class="navbar-header">
+                    <a href="main" class="navbar-brand">
+                        <div class="brand-text brand-big hidden-lg-down"><img src="mainStatic/img/logo-white.png"
+                                                                              alt="Logo"
+                                                                              class="img-fluid"></div>
+                        <div class="brand-text brand-small"><img src="mainStatic/img/logo-icon.png" alt="Logo"
+                                                                 class="img-fluid">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                <!-- Expand-->
+                <li class="nav-item d-flex align-items-center full_scr_exp"><a class="nav-link" href="#"><img
+                        src="mainStatic/img/expand.png" onclick="toggleFullScreen(document.body)" class="img-fluid"
+                        alt=""></a>
+                </li>
+
+                <li class="nav-item dropdown"><a id="profile" class="nav-link logout" data-target="#" href="#"
+                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                        src="mainStatic/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"
+                        style="height: 30px; width: 30px;"></a>
+                    <ul aria-labelledby="profile" class="dropdown-menu profile">
+                        <li>
+                            <a rel="nofollow" href="#" class="dropdown-item d-flex">
+                                <div class="msg-profile"><img src="mainStatic/img/avatar-1.jpg" alt="..."
+                                                              class="img-fluid rounded-circle"></div>
+                                <div class="msg-body">
+                                    <h3 class="h5" th:text="${teacherName}">Steena Ben</h3><span>steenaben@Businessbox.com</span>
+                                </div>
+                            </a>
+                            <hr>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="profile" class="dropdown-item">
+                                <div class="notification">
+                                    <div class="notification-content"><i class="fa fa-user "></i>My Profile</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="profile" class="dropdown-item">
+                                <div class="notification">
+                                    <div class="notification-content"><i class="fa fa-envelope-o"></i>Inbox</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="profile" class="dropdown-item">
+                                <div class="notification">
+                                    <div class="notification-content"><i class="fa fa-cog"></i>Setting</div>
+                                </div>
+                            </a>
+                            <hr>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="profile" class="dropdown-item">
+                                <div class="notification">
+                                    <div class="notification-content"><i class="fa fa-power-off"></i>Logout</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!--====================================================
+                        PAGE CONTENT
+                        ======================================================-->
+<div class="page-content d-flex align-items-stretch">
+
+    <!--***** SIDE NAVBAR *****-->
+    <nav class="side-navbar">
+        <div class="sidebar-header d-flex align-items-center">
+            <div class="avatar"><img src="mainStatic/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="title">
+                <h1 class="h4" th:text="${teacherName}">老师名字</h1>
+            </div>
+        </div>
+        <br>
+        <!-- Sidebar Navidation Menus-->
+        <ul class="list-unstyled">
+            <li class="active"><a href="main"><i class="icon-home"></i>实时课堂</a></li>
+            <li><a href="rollCall"> <i class="fa fa-bell-o"></i>智能点名</a></li>
+            <li><a href="tables"> <i class="icon-grid"></i>课堂纪录</a></li>
+            <li><a href="#apps" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>扩展功能</a>
+                <ul id="apps" class="collapse list-unstyled">
+                    <li><a href="calendar">日历</a></li>
+                    <li><a href="email">Email</a></li>
+                    <li><a href="media">每日推送</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content-inner" style="padding: 15px">
+        <div class="row" id="firstRow">
+            <div class="col-md-4">
+                <div class="card card-c1">
+                    <div class="card-header card-chart" data-background-color="green">
+                        <div id="studentNum" style="width: 500px;height:370px;"></div>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="title"><strong>学生课堂概况</strong></h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-c1">
+                    <div class="card-header card-chart" data-background-color="red">
+                        <div id="studentStatus" style="width: 490px;height:370px;"></div>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="title"><strong>未听课学生坐标</strong></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-c1">
+                    <div class="card-header card-chart" data-background-color="red" id="pic">
+                        <img src="screenshot2/output.jpg" style="width: 490px; height: 370px;">
+                    </div>
+                    <div class="card-content">
+                        <h4 class="title"><strong>学生实时监控</strong></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="secondRow">
+            <div class="col-md-4">
+                <div class="card card-c1">
+                    <div class="card-header card-chart" data-background-color="green">
+                        <div id="teachStatus" style="width: 500px;height:370px;"></div>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="title"><strong>教师上课状态</strong></h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-c1">
+                    <div class="card-header card-chart" data-background-color="red">
+                        <div id="keyBodyWord" style="width: 490px;height:370px;"></div>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="title"><strong>敏感词与肢体动作</strong></h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-c1">
+                    <div class="card-header card-chart" data-background-color="red">
+                        <video src="video/teacher.mp4" autoplay="autoplay" muted="muted" width="490" height="362">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="title"><strong>教师实时监控</strong></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--Global Javascript -->
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+<script src="mainStatic/js/popper/popper.min.js"></script>
+<script src="mainStatic/js/tether.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="mainStatic/js/jquery.cookie.js"></script>
+<script src="mainStatic/js/jquery.validate.min.js"></script>
+<script src="mainStatic/js/front.js"></script>
+<script type="text/javascript" src="mainStatic/js/jquerymove.min.js"></script>
+<script type="text/javascript" src="mainStatic/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="mainStatic/js/unslider-min.js"></script>
+<script type="text/javascript" src="mainStatic/js/template.js"></script>
+
+<!--------------------------------------
+学生状态的综合检测
+---------------------------------------->
+<script type="text/javascript">
+    var vFirstRow = new Vue({
+        el: "#firstRow",
+        data: {
+            interval: '',
+            studentNum: [0, 0, 0],
+            studentNumChart: '',
+            studentNumOption: '',
+            studentPhone: [],
+            studentSleep: [],
+            studentStatusChart: '',
+            studentStatusOption: '',
+        }
+    });
+
+    var vFirstRow = new Vue({
+        el: "#firstRow",
+        data: {
+            studentNum: [0, 0, 0]
+        },
+        methods: {
+            detect: function () {
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "realTime/studentStatus",
+                    "method": "POST",
+                    "success": function (response) {
+                        var result = $.parseJSON(response);
+                        vFirstRow.studentNum[0] = result.number;
+                        vFirstRow.studentNum[1] = result.sleep;
+                        vFirstRow.studentNum[2] = result.phone;
+
+                        var img = document.createElement('img');
+                        img.style.width = "490px";
+                        img.style.height = "370px";
+                        img.src = "data:image/jpeg;base64," + result.Base64;
+                        var container = document.getElementById("pic");
+                        while (container.hasChildNodes()) {
+                            container.removeChild(container.firstChild);
+                        }
+                        container.appendChild(img);
+
+                        vFirstRow.studentSleep = [];
+                        result.phoneXy.forEach(function (item) {
+                            vFirstRow.studentSleep.push([item.x, item.y]);
+                        });
+                        vFirstRow.studentPhone = [];
+                        result.sleepXy.forEach(function (item) {
+                            vFirstRow.studentPhone.push([item.x, item.y]);
+                        });
+
+                        vFirstRow.render();
+                        vFirstRow.$forceUpdate();
+                    }
+                };
+                $.ajax(settings);
+            },
+            render: function () {
+                studentNumOption = {
+                    tooltip: {},
+                    xAxis: {
+                        type: 'category',
+                        data: ['认真听课', '睡觉', '玩手机']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        data: vFirstRow.studentNum,
+                        type: 'bar',
+                        barWidth: '50%',
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'top',
+                                fontSize: 25
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: function (params) {
+                                    var colorList = ['#63B8FF', '#FA8072', '#66CDAA'];
+                                    return colorList[params.dataIndex];
+                                }
+                            },
+                            emphasis: {
+                                shadowBlur: 20,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }]
+                };
+                studentNumChart.setOption(studentNumOption);
+
+                studentStatusOption = {
+                    xAxis: {
+                        type: 'value',
+                        splitLine: {},
+                        splitNumber: 12,
+                    },
+                    yAxis: {
+                        splitNumber: 10,
+                    },
+                    series: [{
+                        name: '玩手机',
+                        symbolSize: 20,
+                        data: vFirstRow.studentPhone,
+                        type: 'scatter',
+                        itemStyle: {
+                            normal: {
+                                shadowBlur: 5,
+                                shadowColor: 'rgba(120, 36, 50, 0.5)',
+                                shadowOffsetX: 5,
+                                color: '#FF0000',
+                            }
+                        }
+                    }, {
+                        name: '睡觉',
+                        symbolSize: 20,
+                        data: vFirstRow.studentSleep,
+                        type: 'scatter',
+                        itemStyle: {
+                            normal: {
+                                shadowBlur: 5,
+                                shadowColor: 'rgba(25, 100, 150, 0.5)',
+                                shadowOffsetX: 5,
+                                color: '#1E90FF',
+                            },
+                        },
+                    }],
+                    legend: {
+                        data: ['玩手机', '睡觉'],
+                        left: 'right',
+                        orient: 'vertical',
+                        textStyle: {
+                            fontSize: 10,
+                        }
+                    },
+                };
+                studentStatusChart.setOption(studentStatusOption);
+            }
+        },
+        mounted: function () {
+            studentNumChart = echarts.init(document.getElementById("studentNum"));
+            studentStatusChart = echarts.init(document.getElementById("studentStatus"));
+            this.render();
+            this.detect();
+            interval = setInterval(this.detect, 6000);
+        }
+    });
+</script>
+</body>
+
+<!-------------------------------------
+敏感词汇和肢体动作的检测
+-------------------------------------->
+<script type="text/javascript">
+    var vkeyBodyWord = new Vue({
+        el: "#keyBodyWord",
+        data: {
+            sensitivity: '敏感词汇\n当前未出现敏感词汇',
+            bodyAction: '肢体动作\n当前动作正常',
+            keyBodyWordChart: '',
+            keyBodyWordOption: '',
+            interval: ''
+        },
+        methods: {
+            detection: function () {
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "realTime/sensitivity",
+                    "method": "POST",
+                    "success": function (response) {
+                        vkeyBodyWord.sensitivity = response;
+                        vkeyBodyWord.render();
+                    }
+                };
+                $.ajax(settings);
+            },
+            render: function () {
+                keyBodyWordOption = {
+                    series: [{
+                        type: 'treemap',
+                        data: [{
+                            name: this.bodyAction,            // First tree
+                            value: 20,
+                            itemStyle: {
+                                normal: {
+                                    color: '#99cccc',
+                                }
+                            }
+                        }, {
+                            name: this.sensitivity,            // Second tree
+                            value: 20,
+                        }]
+                    }]
+                };
+                keyBodyWordChart.setOption(keyBodyWordOption);
+            }
+        },
+        mounted: function () {
+            keyBodyWordChart = echarts.init(document.getElementById('keyBodyWord'));
+            this.render();
+            interval = setInterval(this.detection, 6000);
+
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "realTime/start",
+                "method": "POST"
+            };
+            $.ajax(settings);
+            screenshot();
+
+            function screenshot() {
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "realTime/screenshot",
+                    "method": "POST"
+                };
+                $.ajax(settings);
+            }
+
+            setInterval(screenshot, 1500);
+        }
+    });
+</script>
+
+<!---------------------------------------------------
+教师语速、情感、粘度、情绪分析
+----------------------------------------------------->
+<script type="text/javascript">
+    var vTeachStatus = new Vue({
+        el: "#teachStatus",
+        data: {
+            teachStatusChart: '',
+            teachStatusOption: '',
+            interval: new Array(4),
+            score: [60, 90.5, 78, 100]
+        },
+        methods: {
+            detectSpeed: function () {
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "realTime/speechSpeed",
+                    "method": "POST",
+                    "success": function (response) {
+                        vTeachStatus.score[0] = response * 10;
+                        vTeachStatus.render();
+                    }
+                };
+                $.ajax(settings);
+            },
+            detectEmotion: function () {
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "realTime/emotion",
+                    "method": "POST",
+                    "success": function (response) {
+                        vTeachStatus.score[2] = response;
+                        vTeachStatus.render();
+                    }
+                };
+                $.ajax(settings);
+            },
+            detectSimilarity: function () {
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "realTime/similarity",
+                    "method": "POST",
+                    "success": function (response) {
+                        vTeachStatus.score[3] = response;
+                        console.log(response);
+                        vTeachStatus.render();
+                    }
+                };
+                $.ajax(settings);
+            },
+            render: function () {
+                teachStatusOption = {
+                    title: {
+                        text: '满分均为100'
+                    },
+                    tooltip: {},
+                    radar: {
+                        name: {
+                            textStyle: {
+                                color: '#fff',
+                                backgroundColor: '#999',
+                                borderRadius: 3,
+                                padding: [3, 5]
+                            }
+                        },
+                        indicator: [
+                            {name: '讲课语速', max: 100},
+                            {name: '音量大小', max: 100},
+                            {name: '教师情绪', max: 100},
+                            {name: '课程粘度', max: 100},
+                        ],
+                        splitArea: {
+                            areaStyle: {
+                                color: ['rgba(114, 172, 209, 0.2)',
+                                    'rgba(114, 172, 209, 0.4)', 'rgba(114, 172, 209, 0.6)',
+                                    'rgba(114, 172, 209, 0.8)', 'rgba(114, 172, 209, 1)'],
+                                shadowColor: 'rgba(0, 0, 0, 0.3)',
+                                shadowBlur: 10
+                            }
+                        }
+                    },
+                    series: [{
+                        type: 'radar',
+                        data: [
+                            {
+                                value: this.score,
+                                name: '教师上课状态',
+                                label: {
+                                    normal: {
+                                        show: true
+                                    }
+                                }
+                            }
+                        ]
+                    }]
+                };
+                teachStatusChart.setOption(teachStatusOption);
+            }
+        },
+        mounted: function () {
+            teachStatusChart = echarts.init(document.getElementById('teachStatus'));
+            this.render();
+            interval[0] = setInterval(this.detectSpeed, 6000);
+            interval[2] = setInterval(this.detectEmotion, 6000);
+            interval[3] = setInterval(this.detectSimilarity, 6000);
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <title>EduWatching</title>
+    <link rel="shortcut icon" href="mainStatic/img/favicon.ico">
+    <!-- global stylesheets -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="mainStatic/css/font-icon-style.css">
+    <link rel="stylesheet" href="mainStatic/css/style.default.css" id="theme-stylesheet">
+
+    <!-- Core stylesheets -->
+    <link rel="stylesheet" href="mainStatic/css/profile.css">
+</head>
+
+<body>
+
+<!--====================================================
+                         MAIN NAVBAR
+======================================================-->
+<header class="header">
+    <nav class="navbar navbar-expand-lg ">
+        <div class="search-box">
+            <button class="dismiss"><i class="icon-close"></i></button>
+            <form id="searchForm" action="#" role="search">
+                <input type="search" placeholder="Search Now" class="form-control">
+            </form>
+        </div>
+        <div class="container-fluid ">
+            <div class="navbar-holder d-flex align-items-center justify-content-between">
+                <div class="navbar-header">
+                    <a href="main" class="navbar-brand">
+                        <div class="brand-text brand-big hidden-lg-down"><img src="mainStatic/img/logo-white.png" alt="Logo"
+                                                                              class="img-fluid"></div>
+                        <div class="brand-text brand-small"><img src="mainStatic/img/logo-icon.png" alt="Logo" class="img-fluid">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                <!-- Expand-->
+                <li class="nav-item d-flex align-items-center full_scr_exp"><a class="nav-link" href="#"><img
+                        src="mainStatic/img/expand.png" onclick="toggleFullScreen(document.body)" class="img-fluid" alt=""></a>
+                </li>
+
+
+                <li class="nav-item dropdown"><a id="profile" class="nav-link logout" data-target="#" href="#"
+                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                        src="mainStatic/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"
+                        style="height: 30px; width: 30px;"></a>
+                    <ul aria-labelledby="profile" class="dropdown-menu profile">
+                        <li>
+                            <a rel="nofollow" href="#" class="dropdown-item d-flex">
+                                <div class="msg-profile"><img src="mainStatic/img/avatar-1.jpg" alt="..."
+                                                              class="img-fluid rounded-circle"></div>
+                                <div class="msg-body">
+                                    <h3 class="h5">Steena Ben</h3><span>steenaben@Businessbox.com</span>
+                                </div>
+                            </a>
+                            <hr>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="profile" class="dropdown-item">
+                                <div class="notification">
+                                    <div class="notification-content"><i class="fa fa-user "></i>My Profile</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="profile" class="dropdown-item">
+                                <div class="notification">
+                                    <div class="notification-content"><i class="fa fa-envelope-o"></i>Inbox</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="profile" class="dropdown-item">
+                                <div class="notification">
+                                    <div class="notification-content"><i class="fa fa-cog"></i>Setting</div>
+                                </div>
+                            </a>
+                            <hr>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="profile" class="dropdown-item">
+                                <div class="notification">
+                                    <div class="notification-content"><i class="fa fa-power-off"></i>Logout</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!--====================================================
+                        PAGE CONTENT
+======================================================-->
+<div class="page-content d-flex align-items-stretch">
+
+    <!--***** SIDE NAVBAR *****-->
+    <nav class="side-navbar">
+        <div class="sidebar-header d-flex align-items-center">
+            <div class="avatar"><img src="mainStatic/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="title">
+                <h1 class="h4">Steena Ben</h1>
+            </div>
+        </div>
+        <hr>
+        <!-- Sidebar Navidation Menus-->
+        <ul class="list-unstyled">
+            <li class="active"><a href="main"><i class="icon-home"></i>实时课堂</a></li>
+            <li><a href="tables"> <i class="icon-grid"></i>课堂纪录</a></li>
+            <li><a href="#apps" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>扩展功能</a>
+                <ul id="apps" class="collapse list-unstyled">
+                    <li><a href="calendar">日历</a></li>
+                    <li><a href="email">Email</a></li>
+                    <li><a href="media">每日推送</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content-inner chart-cont">
+
+        <!--***** CONTENT *****-->
+        <div class="row mt-2" id="card-prof">
+            <div class="col-md-3">
+                <div class="card hovercard">
+                    <div class="cardheader"></div>
+                    <div class="avatar">
+                        <img alt="" src="mainStatic/img/avatar-1.jpg" class="img-fluid">
+                    </div>
+                    <div class="info">
+                        <div class="title">
+                            <a target="_blank" href="#">Steena Ben</a>
+                        </div>
+                        <div class="desc">steena@gmail.com</div>
+                        <hr>
+                    </div>
+                    <nav class="nav text-center prof-nav">
+                        <ul class="list-unstyled ">
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Inbox</a></li>
+                            <li><a href="#">Setting</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </nav>
+                    <div class="bottom">
+                        <a class="btn btn-info btn-twitter btn-sm" href="#">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a class="btn btn-danger btn-sm" rel="publisher"
+                           href="#">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                        <a class="btn btn-primary btn-sm" rel="publisher"
+                           href="#">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card hovercard">
+                    <div class="tab" role="tabpanel">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#profile" role="tab" data-toggle="tab"><span><i
+                                        class="fa fa-user"></i></span> Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#buzz" role="tab" data-toggle="tab"><span><i
+                                        class="fa fa-inbox"></i></span> Inbox</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#references" role="tab" data-toggle="tab"><span><i
+                                        class="fa fa-cog"></i></span> Setting</a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content tabs">
+                            <div role="tabpanel" class="tab-pane fade show active">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam,
+                                    ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur
+                                    lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. </p>
+                                <div class="row" id="report4">
+                                    <div class="col-md-4">
+                                        <div class="card text-center social-bottom sb-fb">
+                                            <i class="fa fa-facebook"></i>
+                                            <div>3250 +</div>
+                                            <p>Likes</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card text-center social-bottom sb-tw">
+                                            <i class="fa fa-twitter"></i>
+                                            <div>2345 +</div>
+                                            <p>Following</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card text-center social-bottom sb-gp">
+                                            <i class="fa fa-google-plus"></i>
+                                            <div>1253 +</div>
+                                            <p>Followers</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <h5 class="col-12 mb-2">User Info</h5>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <strong class="mr-5"><i class="fa fa-envelope"> E-mail: </i></strong>
+                                            steena@gmail.com
+                                        </div>
+                                        <div class="form-group">
+                                            <strong class="mr-5"><i class="fa fa-phone"> Phone: </i></strong> +91 1233
+                                            45 5678
+                                        </div>
+                                        <div class="form-group">
+                                            <strong class="mr-5"><i class="fa fa-map"> City: </i></strong> New York
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <strong class="mr-5"><i class="fa fa-globe"> Country: </i></strong>
+                                            steena@gmail.com
+                                        </div>
+                                        <div class="form-group">
+                                            <strong class="mr-5"><i class="fa fa-map-marker"> Address: </i></strong> 25,
+                                            Dist town Street, Logn California, US
+                                        </div>
+                                        <div class="form-group">
+                                            <strong class="mr-5"><i class="fa fa-globe"> Website: </i></strong>
+                                            www.Businessbox.com
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="buzz">
+                                <div class="panel panel-default widget">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><i class="fa fa-comment"></i> Messages</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="mainStatic/img/avatar-2.jpg" class="img-circle img-fluid"
+                                                             alt=""/></div>
+                                                    <div class=" col-md-10">
+                                                        <div>
+                                                            <a href="#">
+                                                                Congratulations</a>
+                                                            <div class="mic-info">
+                                                                By: <a href="#">Check My Athletics</a> on 12 Jun 2018
+                                                            </div>
+                                                        </div>
+                                                        <div class="comment-text">
+                                                            We would like to congratulate John on his achievement...
+                                                        </div>
+                                                        <a href="#" class="btn btn-sm btn-hover btn-primary"
+                                                           href="#reply"><span class="fa fa-share-alt"
+                                                                               style="padding-right:3px;"></span></a>
+                                                        <a href="#" class="btn btn-sm btn-hover btn-danger"><span
+                                                                class="fa fa-remove" style="padding-right:3px;"></span></a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="mainStatic/img/avatar-3.jpg" class="img-circle img-fluid"
+                                                             alt=""/></div>
+                                                    <div class=" col-md-10">
+                                                        <div>
+                                                            <a href="#">Great Job</a>
+                                                            <div class="mic-info">
+                                                                By: <a href="#">Coacher</a> on 11 May 2018
+                                                            </div>
+                                                        </div>
+                                                        <div class="comment-text">
+                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                            sed diam nonummy nibh
+                                                            euismod tincidunt ut laoreet dolore magna aliquam erat
+                                                            volutpat. Ut wisi enim
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="mainStatic/img/avatar-2.jpg" class="img-circle img-fluid"
+                                                             alt=""/></div>
+                                                    <div class=" col-md-10">
+                                                        <div>
+                                                            <a href="#">Great Job</a>
+                                                            <div class="mic-info">
+                                                                By: <a href="#">Coacher</a> on 11 May 2018
+                                                            </div>
+                                                        </div>
+                                                        <div class="comment-text">
+                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                            sed diam nonummy nibh
+                                                            euismod tincidunt ut laoreet dolore magna aliquam erat
+                                                            volutpat. Ut wisi enim
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="references">
+                                <div class="row mx-2">
+                                    <div class="col-md-12 panel-heading">
+                                        <h3 class="panel-title"><i class="fa fa-comment"></i> Edit Info</h3><br>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <div class="form-group row">
+                                            <label for="example-text-input" style="width: 85px;"
+                                                   class=" col-form-label">Name</label>
+                                            <div class="col-9">
+                                                <input class="form-control" type="text" value="Steena Ben">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="example-email-input" style="width: 85px;"
+                                                   class=" col-form-label">Email</label>
+                                            <div class="col-9">
+                                                <input class="form-control" type="email" value="steena@gmail.com"
+                                                       id="example-email-input">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="example-url-input" style="width: 85px;" class=" col-form-label">URL</label>
+                                            <div class="col-9">
+                                                <input class="form-control" type="url" value="www.Businessbox.com"
+                                                       id="example-url-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label for="example-text-input" style="width: 85px;"
+                                                   class=" col-form-label">Department</label>
+                                            <div class="col-9">
+                                                <input class="form-control" type="text" value="Programming"
+                                                       id="example-text-input">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="example-date-input" style="width: 85px;"
+                                                   class=" col-form-label">Hire Date</label>
+                                            <div class="col-9">
+                                                <input class="form-control" type="date" value="2018-08-19"
+                                                       id="example-date-input">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="example-tel-input" style="width: 85px;" class=" col-form-label">Telephone</label>
+                                            <div class="col-9">
+                                                <input class="form-control" type="tel" value="+91-(555)-555-5555"
+                                                       id="example-tel-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--Global Javascript -->
+<script src="mainStatic/js/jquery.min.js"></script>
+<script src="mainStatic/js/popper/popper.min.js"></script>
+<script src="mainStatic/js/tether.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="mainStatic/js/jquery.cookie.js"></script>
+<script src="mainStatic/js/jquery.validate.min.js"></script>
+<script src="mainStatic/js/chart.min.js"></script>
+<script src="mainStatic/js/front.js"></script>
+
+<!--Core Javascript -->
+<script>
+    new Chart(document.getElementById("myChart-nav").getContext('2d'), {
+        type: 'doughnut',
+        data: {
+            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            datasets: [{
+                backgroundColor: [
+                    "#2ecc71",
+                    "#3498db",
+                    "#95a5a6",
+                    "#9b59b6",
+                    "#f1c40f",
+                    "#e74c3c",
+                    "#34495e"
+                ],
+                data: [12, 19, 3, 17, 28, 24, 7]
+            }]
+        },
+        options: {
+            legend: {display: false},
+            title: {
+                display: true,
+                text: ''
+            }
+        }
+    });
+</script>
+</body>
+
+</html>

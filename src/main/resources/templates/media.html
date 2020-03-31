@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <title>EduWatching</title>
+    <link rel="shortcut icon" href="mainStatic/img/favicon.ico">
+    <!-- global stylesheets -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="mainStatic/css/font-icon-style.css">
+    <link rel="stylesheet" href="mainStatic/css/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="mainStatic/css/style.default.css" id="theme-stylesheet">
+
+    <!-- Core stylesheets -->
+    <link rel="stylesheet" href="mainStatic/css/apps/media.css">
+</head>
+
+<body>
+
+<!--====================================================
+                         MAIN NAVBAR
+======================================================-->
+<header class="header">
+    <nav class="navbar navbar-expand-lg ">
+        <div class="search-box">
+            <button class="dismiss"><i class="icon-close"></i></button>
+            <form id="searchForm" action="#" role="search">
+                <input type="search" placeholder="Search Now" class="form-control">
+            </form>
+        </div>
+        <div class="container-fluid ">
+            <div class="navbar-holder d-flex align-items-center justify-content-between">
+                <div class="navbar-header">
+                    <a href="main" class="navbar-brand">
+                        <div class="brand-text brand-big hidden-lg-down"><img src="mainStatic/img/logo-white.png" alt="Logo"
+                                                                              class="img-fluid"></div>
+                        <div class="brand-text brand-small"><img src="mainStatic/img/logo-icon.png" alt="Logo" class="img-fluid">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                <!-- Expand-->
+                <li class="nav-item d-flex align-items-center full_scr_exp"><a class="nav-link" href="#"><img
+                        src="mainStatic/img/expand.png" onclick="toggleFullScreen(document.body)" class="img-fluid" alt=""></a>
+                </li>
+
+
+                <li class="nav-item dropdown"><a id="profile" class="nav-link logout" data-target="#" href="#"
+                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                        src="mainStatic/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"
+                        style="height: 30px; width: 30px;"></a>
+                    <ul aria-labelledby="profile" class="dropdown-menu profile">
+                        <li>
+                            <a rel="nofollow" href="#" class="dropdown-item d-flex">
+                                <div class="msg-profile"><img src="mainStatic/img/avatar-1.jpg" alt="..."
+                                                              class="img-fluid rounded-circle"></div>
+                                <div class="msg-body">
+                                    <h3 class="h5">Steena Ben</h3><span>steenaben@Businessbox.com</span>
+                                </div>
+                            </a>
+                            <hr>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="profile" class="dropdown-item">
+                                <div class="notification">
+                                    <div class="notification-content"><i class="fa fa-user "></i>My Profile</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="profile" class="dropdown-item">
+                                <div class="notification">
+                                    <div class="notification-content"><i class="fa fa-envelope-o"></i>Inbox</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="profile" class="dropdown-item">
+                                <div class="notification">
+                                    <div class="notification-content"><i class="fa fa-cog"></i>Setting</div>
+                                </div>
+                            </a>
+                            <hr>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="profile" class="dropdown-item">
+                                <div class="notification">
+                                    <div class="notification-content"><i class="fa fa-power-off"></i>Logout</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+
+<!--====================================================
+                        PAGE CONTENT
+======================================================-->
+<div class="page-content d-flex align-items-stretch">
+
+    <!--***** SIDE NAVBAR *****-->
+    <nav class="side-navbar">
+        <div class="sidebar-header d-flex align-items-center">
+            <div class="avatar"><img src="mainStatic/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="title">
+                <h1 class="h4">Steena Ben</h1>
+            </div>
+        </div>
+        <hr>
+        <!-- Sidebar Navidation Menus-->
+        <ul class="list-unstyled">
+            <li><a href="main"><i class="icon-home"></i>实时课堂</a></li>
+            <li><a href="rollCall"> <i class="fa fa-bell-o"></i>智能点名</a></li>
+            <li><a href="tables"> <i class="icon-grid"></i>课堂纪录</a></li>
+            <li class="active"><a href="#apps" aria-expanded="false" data-toggle="collapse"> <i
+                    class="icon-interface-windows"></i>扩展功能</a>
+                <ul id="apps" class="collapse list-unstyled">
+                    <li><a href="calendar">日历</a></li>
+                    <li><a href="email">Email</a></li>
+                    <li class="active"><a href="media">每日推送</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content-inner media-cont">
+
+        <!--***** MEDIA *****-->
+        <div class="row" id="media">
+            <div class="row no-gutters">
+                <div class="col-md-4 col-sm-4">
+                    <div class="img-wrapper">
+                        <a href="mainStatic/img/work/1.jpg" title="Work Description Goes Here">
+                            <img src="mainStatic/img/work/1.jpg" class="img-fluid" alt="Work">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="img-wrapper">
+                        <a href="mainStatic/img/work/2.jpg" title="Work Description Goes Here">
+                            <img src="mainStatic/img/work/2.jpg" class="img-fluid" alt="Work">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="img-wrapper">
+                        <a href="mainStatic/img/work/3.jpg" title="Work Description Goes Here">
+                            <img src="mainStatic/img/work/3.jpg" class="img-fluid" alt="Work">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="img-wrapper">
+                        <a href="mainStatic/img/work/4.jpg" title="Work Description Goes Here">
+                            <img src="mainStatic/img/work/4.jpg" class="img-fluid" alt="Work">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="img-wrapper">
+                        <a href="mainStatic/img/work/5.jpg" title="Work Description Goes Here">
+                            <img src="mainStatic/img/work/5.jpg" class="img-fluid" alt="Work">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="img-wrapper">
+                        <a href="mainStatic/img/work/6.jpg" title="Work Description Goes Here">
+                            <img src="mainStatic/img/work/6.jpg" class="img-fluid" alt="Work">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="img-wrapper">
+                        <a href="mainStatic/img/work/7.jpg" title="Work Description Goes Here">
+                            <img src="mainStatic/img/work/7.jpg" class="img-fluid" alt="Work">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="img-wrapper">
+                        <a href="mainStatic/img/work/8.jpg" title="Work Description Goes Here">
+                            <img src="mainStatic/img/work/8.jpg" class="img-fluid" alt="Work">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="img-wrapper">
+                        <a href="mainStatic/img/work/9.jpg" title="Work Description Goes Here">
+                            <img src="mainStatic/img/work/9.jpg" class="img-fluid" alt="Work">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--Global Javascript -->
+<script src="mainStatic/js/jquery.min.js"></script>
+<script src="mainStatic/js/popper/popper.min.js"></script>
+<script src="mainStatic/js/tether.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="mainStatic/js/jquery.cookie.js"></script>
+<script src="mainStatic/js/jquery.validate.min.js"></script>
+<script src="mainStatic/js/chart.min.js"></script>
+<script src="mainStatic/js/front.js"></script>
+
+<!--Core Javascript -->
+<script>
+    new Chart(document.getElementById("myChart-nav").getContext('2d'), {
+        type: 'doughnut',
+        data: {
+            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            datasets: [{
+                backgroundColor: [
+                    "#2ecc71",
+                    "#3498db",
+                    "#95a5a6",
+                    "#9b59b6",
+                    "#f1c40f",
+                    "#e74c3c",
+                    "#34495e"
+                ],
+                data: [12, 19, 3, 17, 28, 24, 7]
+            }]
+        },
+        options: {
+            legend: {display: false},
+            title: {
+                display: true,
+                text: ''
+            }
+        }
+    });
+</script>
+<script src="mainStatic/js/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script>
+    $(function () {
+        $("#work").magnificPopup({
+            delegate: 'a', // child items selector, by clicking on it popup will open
+            type: 'image',
+            gallery: {
+                enabled: true
+            }
+        });
+    });
+</script>
+</body>
+
+</html>

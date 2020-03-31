@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:v-on="http://www.w3.org/1999/xhtml"
+      xmlns:v-bind="http://www.w3.org/2005/Atom">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课堂记录</title>
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.replay.css"/>
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/unslider.css"/>
+    <link rel="stylesheet" type="text/css" href="css/template.css"/>
+    <script src="https://cdn.staticfile.org/vue/2.6.10/vue.min.js"></script>
+    <style type="text/css">
+        body {
+            background-image: url(images/back.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed
+        }
+    </style>
+    <style type="text/css">
+        .videoBox {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            left: 0;
+            top: 0
+        }
+
+        .videoBox .stuVideo {
+            position: absolute;
+            left: 25%;
+            width: 50%;
+            top: 18%
+        }
+
+        .videoBox .teaVideo {
+            position: absolute;
+            left: 30%;
+            width: 40%;
+            top: 10%;
+        }
+
+        .videoBox img {
+            position: absolute;
+            left: 25%;
+            width: 50%;
+            top: 18%
+        }
+
+        .videoBox button {
+            position: absolute;
+            width: 16%;
+            height: 5%;
+            left: 42%;
+            top: 65%;
+        }
+    </style>
+</head>
+
+<body data-target="#nino-navbar" data-spy="scroll">
+<section class="nino-testimonial" id="title">
+    <div class="container">
+        <div class="nino-testimonialSlider">
+            <ul>
+                <li>
+                    <div layout="row">
+                        <div class="nino-symbol fsr">
+                            <i class="mdi mdi-comment-multiple-outline nino-icon"></i>
+                        </div>
+                        <div>
+                            <span class="name" style="color:#33CCFF;">课堂基本信息</span>
+                            <p class="quote"
+                               th:utext="${title}"></p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div layout="row">
+                        <div class="nino-symbol fsr">
+                            <i class="mdi mdi-wechat nino-icon"></i>
+                        </div>
+                        <div>
+                            <p class="quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud exercitation."</p>
+                            <span class="name">Jon Doe</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div layout="row">
+                        <div class="nino-symbol fsr">
+                            <i class="mdi mdi-message-text-outline nino-icon"></i>
+                        </div>
+                        <div>
+                            <p class="quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud exercitation."</p>
+                            <span class="name">Jon Doe</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="nino-story" style="padding-bottom: 0px; padding-top: 40px">
+    <div class="container">
+        <h2 class="nino-sectionHeading">
+            <span class="nino-subHeading">What we See</span>
+            本节课详细情况
+        </h2>
+        <p class="nino-sectionDesc">
+            在这里可以回顾之前上课的过程，有教师的录像视频与学生的录像视频，对于课堂中出现的不良现象，会有
+            详细的记录与截图，可供查看与回顾。<br>感谢您对EduWatching的支持。
+        </p>
+        <div class="sectionContent" id="header">
+            <div class="row nino-hoverEffect">
+                <div class="col-md-4 col-sm-4">
+                    <div class="item" v-on:click="playStu">
+                        <a class="overlay" href="#">
+								<span class="content">
+									<i class="mdi mdi-account-multiple nino-icon"></i>
+									查看教学录像--学生
+								</span>
+                            <img src="images/3-2.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="item" v-on:click="playTea">
+                        <a class="overlay" href="#">
+								<span class="content">
+									<i class="mdi mdi-image-filter-center-focus-weak nino-icon"></i>
+									查看教学录像--教师
+								</span>
+                            <img src="images/3-1.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="item">
+                        <a class="overlay" href="#">
+								<span class="content">
+									<i class="mdi mdi-airplay nino-icon"></i>
+									查看本次上课评分结果
+								</span>
+                            <img src="images/3-3.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--/#nino-story-->
+<!-- What We Do
+================================================== -->
+<section id="nino-whatWeDo">
+    <div class="container">
+        <div class="sectionContent">
+            <div class="row">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                   aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="mdi mdi-chevron-up nino-icon arrow"></i>
+                                    <i class="mdi mdi-camera nino-icon"></i>
+                                    教师课堂行为反馈
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                             aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr class="bg-info text-white">
+                                        <th>时间</th>
+                                        <th>描述</th>
+                                        <th>截图</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr v-for="record in teaRecords">
+                                        <th scope="row">{{record.time}}</th>
+                                        <td>{{record.description}}</td>
+                                        <td><a v-on:click="showScreenShot">截图</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                   href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <i class="mdi mdi-chevron-up nino-icon arrow"></i>
+                                    <i class="mdi mdi-owl nino-icon"></i>
+                                    学生课堂行为反馈
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr class="bg-info text-white">
+                                        <th>时间</th>
+                                        <th>描述</th>
+                                        <th>截图</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr v-for="record in stuRecords">
+                                        <th scope="row">{{record.time}}</th>
+                                        <td>{{record.description}}</td>
+                                        <td><a v-on:click="showScreenShot">截图</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--/#nino-whatWeDo-->
+<a href="#" id="nino-scrollToTop">Go to Top</a>
+
+<div id="play" class="videoBox" v-show="boxPlay" v-on:click="hideItem">
+    <video controls="controls" class="teaVideo" v-show="teaPlay">
+        <source src="video/teacher.mp4" type="video/mp4"/>
+    </video>
+    <video controls="controls" class="stuVideo" v-show="stuPlay">
+        <source src="video/student.mp4" type="video/mp4"/>
+    </video>
+    <img src="screenshot/1.png" v-show="imgPlay">
+    <button type="button" class="btn btn-success" v-on:click="hideItem">退出观看</button>
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.hoverdir.js"></script>
+<script type="text/javascript" src="js/modernizr.custom.97074.js"></script>
+<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="js/unslider-min.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script>
+    var vAccordion = new Vue({
+        el: "#accordion",
+        data: {
+            teaRecords: [],
+            stuRecords: []
+        },
+        methods: {
+            showScreenShot: function () {
+                vPlay.boxPlay = true;
+                vPlay.imgPlay = true;
+            }
+        },
+        mounted: function () {
+            var form = new FormData();
+            form.append("id", "2");
+
+            var settings1 = {
+                "async": true,
+                "crossDomain": true,
+                "url": "record/teaAbnormal",
+                "method": "POST",
+                "processData": false,
+                "contentType": false,
+                "mimeType": "multipart/form-data",
+                "data": form,
+                "success": function (response) {
+                    vAccordion.teaRecords = $.parseJSON(response);
+                }
+            };
+            $.ajax(settings1);
+
+            var settings2 = {
+                "async": true,
+                "crossDomain": true,
+                "url": "record/stuAbnormal",
+                "method": "POST",
+                "processData": false,
+                "contentType": false,
+                "mimeType": "multipart/form-data",
+                "data": form,
+                "success": function (response) {
+                    vAccordion.stuRecords = $.parseJSON(response);
+                }
+            };
+            $.ajax(settings2);
+        }
+    })
+</script>
+<script>
+    var vHeader = new Vue({
+        el: "#header",
+        methods: {
+            playTea: function () {
+                vPlay.boxPlay = true;
+                vPlay.teaPlay = true;
+            },
+            playStu: function () {
+                vPlay.boxPlay = true;
+                vPlay.stuPlay = true;
+            }
+        }
+    });
+    var vPlay = new Vue({
+        el: "#play",
+        data: {
+            teaPlay: false,
+            stuPlay: false,
+            boxPlay: false,
+            imgPlay: false
+        },
+        methods: {
+            hideItem: function () {
+                this.boxPlay = false;
+                this.teaPlay = false;
+                this.stuPlay = false;
+                this.imgPlay = false;
+            }
+        }
+    })
+</script>
+</body>
+</html>
